@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 const links = [
   { href: '#about', label: 'About' },
@@ -15,12 +16,18 @@ const links = [
 export default function Nav() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === '/'
 
   useEffect(() => {
+    if (!isHome) {
+      setScrolled(true)
+      return
+    }
     const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.6)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [isHome])
 
   return (
     <header

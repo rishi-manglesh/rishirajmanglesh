@@ -49,13 +49,16 @@ export default function Nav() {
 
         {/* Desktop */}
         <ul className={`hidden md:flex items-center gap-6 transition-opacity duration-500 ${scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-          {links.map(({ href, label }) => (
-            <li key={href}>
-              <a href={href} className="text-sm text-ivory/60 hover:text-ivory transition-colors">
-                {label}
-              </a>
-            </li>
-          ))}
+          {links.map(({ href, label }) => {
+            const resolvedHref = !isHome && href.startsWith('#') ? `/${href}` : href
+            return (
+              <li key={href}>
+                <a href={resolvedHref} className="text-sm text-ivory/60 hover:text-ivory transition-colors">
+                  {label}
+                </a>
+              </li>
+            )
+          })}
           <li>
             <a
               href="https://linkedin.com/in/rishirajmanglesh"
@@ -101,13 +104,16 @@ export default function Nav() {
       {open && scrolled && (
         <div className="md:hidden bg-navy-deep border-t border-white/[0.06] px-6 py-4">
           <ul className="flex flex-col gap-4">
-            {links.map(({ href, label }) => (
-              <li key={href}>
-                <a href={href} className="text-sm text-ivory/60 hover:text-ivory" onClick={() => setOpen(false)}>
-                  {label}
-                </a>
-              </li>
-            ))}
+            {links.map(({ href, label }) => {
+              const resolvedHref = !isHome && href.startsWith('#') ? `/${href}` : href
+              return (
+                <li key={href}>
+                  <a href={resolvedHref} className="text-sm text-ivory/60 hover:text-ivory" onClick={() => setOpen(false)}>
+                    {label}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
         </div>
       )}

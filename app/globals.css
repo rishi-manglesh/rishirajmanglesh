@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #C9A84C33;
+  color: #F5EFE3;
+}
+
+@layer base {
+  body {
+    @apply bg-navy text-ivory font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .section-divider {
+    @apply border-t border-white/10;
+  }
+}

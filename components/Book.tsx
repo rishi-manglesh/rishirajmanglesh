@@ -1,26 +1,33 @@
+'use client'
+
+import Image from 'next/image'
+import { useState } from 'react'
+
 export default function Book() {
+  const [flipped, setFlipped] = useState(false)
+
   return (
-    <section id="book" className="section-divider py-24 px-6 bg-charcoal/30">
+    <section id="book" className="section-divider py-24 px-6 bg-navy-deep">
       <div className="max-w-5xl mx-auto">
         <p className="text-gold text-xs tracking-widest uppercase mb-4">Published Work</p>
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+
+          {/* Left — title + description + CTAs */}
           <div>
-            <h2 className="font-display text-3xl md:text-4xl text-ivory leading-snug mb-2">
+            <h2 className="font-display text-3xl md:text-4xl text-ivory leading-snug mb-1">
               AI Orchestration:<br />The Definitive Guide
             </h2>
-            <p className="text-gold/70 text-sm mb-6 italic">
-              Rishi R. Manglesh
+            <p className="font-display text-base text-ivory/40 italic mb-2">
+              How to Build Automation That Actually Works
             </p>
-            <p className="text-ivory/60 leading-relaxed mb-4">
-              Most AI projects fail before they start—because organisations automate broken processes
-              instead of fixing them first. This book is a practitioner's manual for doing it right:
-              understanding when to reach for AI, how to design systems that actually work at scale,
-              and how to lead the people affected by the change.
+            <p className="text-gold/60 text-xs mb-8">
+              Rishi Raj Manglesh · Published by Hundred Solutions AS · May 2026
             </p>
             <p className="text-ivory/60 leading-relaxed mb-8">
-              Written from the inside of two decades of enterprise system implementations, it covers
-              orchestration architecture, multi-agent design, ERP integration, ROI measurement, and
-              the human side of automation that vendor playbooks never mention.
+              Most organisations bolt AI onto legacy tools without understanding why the process
+              exists. This book is a diagnostic before an implementation — every framework earned
+              through production, every warning earned through failure. Accounting and insurance
+              operators will recognise the problems. The patterns apply across industries.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -29,33 +36,67 @@ export default function Book() {
                 rel="noopener noreferrer"
                 className="px-5 py-2.5 bg-gold text-navy font-medium text-sm hover:bg-gold/90 transition-colors"
               >
-                Get on Amazon
+                Read on Amazon ↗
               </a>
               <a
-                href="https://zenodo.org/records/20322844"
+                href="https://read.amazon.com/sample/B0H2QNK3QV?clientId=share"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 border border-white/20 text-ivory/70 text-sm hover:border-gold hover:text-gold transition-colors"
+                className="px-5 py-2.5 border border-gold/40 text-gold/70 text-sm hover:border-gold hover:text-gold transition-colors"
               >
-                Research Preview
+                Preview Chapters ↗
               </a>
             </div>
           </div>
 
-          <div className="border border-white/10 p-8 space-y-6">
-            <p className="text-xs text-ivory/40 uppercase tracking-widest">What it covers</p>
-            {[
-              ['AI Orchestration Fundamentals', 'What orchestration means in practice—and what it is not.'],
-              ['Multi-Agent System Design', 'Patterns for agents that coordinate reliably at enterprise scale.'],
-              ['ERP & Data Integration', 'Making SAP, Oracle, and legacy stacks work with modern AI pipelines.'],
-              ['Change & ROI', 'Measuring outcomes and bringing people through the transition.'],
-            ].map(([title, desc]) => (
-              <div key={title} className="border-t border-white/5 pt-4 first:border-0 first:pt-0">
-                <p className="text-ivory/80 text-sm font-medium mb-1">{title}</p>
-                <p className="text-ivory/40 text-sm">{desc}</p>
+          {/* Right — flippable book cover */}
+          <div className="flex flex-col items-center md:items-end gap-3">
+            <div
+              className="cursor-pointer"
+              style={{ perspective: '1000px', width: 300, height: 450 }}
+              onClick={() => setFlipped(!flipped)}
+              title="Click to flip"
+            >
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  position: 'relative',
+                  transformStyle: 'preserve-3d',
+                  transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                  transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                }}
+              >
+                {/* Front — paperback front cover */}
+                <div
+                  className="absolute inset-0 shadow-2xl shadow-black/70 overflow-hidden"
+                  style={{ backfaceVisibility: 'hidden' }}
+                >
+                  <Image
+                    src="/book-front.jpg"
+                    alt="AI Orchestration: The Definitive Guide — front cover"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                {/* Back — real paperback back cover */}
+                <div
+                  className="absolute inset-0 shadow-2xl shadow-black/70 overflow-hidden"
+                  style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                >
+                  <Image
+                    src="/book-back.jpg"
+                    alt="AI Orchestration: The Definitive Guide — back cover"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
-            ))}
+            </div>
+            <p className="text-ivory/20 text-xs tracking-wide">click cover to flip</p>
           </div>
+
         </div>
       </div>
     </section>

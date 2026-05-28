@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const links = [
   { href: '#about', label: 'About' },
@@ -14,22 +14,37 @@ const links = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.6)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-navy/90 backdrop-blur border-b border-white/5">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? 'bg-navy-deep/95 backdrop-blur-md border-b border-white/[0.06] shadow-lg shadow-black/20'
+          : 'bg-transparent border-b border-transparent'
+      }`}
+    >
       <nav className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-        <Link href="/" className="font-display text-sm text-ivory/80 hover:text-gold transition-colors">
+        <Link
+          href="/"
+          className={`font-display text-sm transition-colors duration-500 ${
+            scrolled ? 'text-ivory/80 hover:text-gold' : 'text-transparent'
+          }`}
+        >
           Rishi Raj Manglesh
         </Link>
 
         {/* Desktop */}
-        <ul className="hidden md:flex gap-6">
+        <ul className={`hidden md:flex gap-6 transition-opacity duration-500 ${scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
           {links.map(({ href, label }) => (
             <li key={href}>
-              <a
-                href={href}
-                className="text-sm text-ivory/60 hover:text-ivory transition-colors"
-              >
+              <a href={href} className="text-sm text-ivory/60 hover:text-ivory transition-colors">
                 {label}
               </a>
             </li>
@@ -41,28 +56,26 @@ export default function Nav() {
           </li>
         </ul>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-ivory/60 hover:text-ivory"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          <span className="block w-5 h-px bg-current mb-1" />
-          <span className="block w-5 h-px bg-current mb-1" />
-          <span className="block w-5 h-px bg-current" />
-        </button>
+        {/* Mobile toggle — only shown when scrolled */}
+        {scrolled && (
+          <button
+            className="md:hidden text-ivory/60 hover:text-ivory"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            <span className="block w-5 h-px bg-current mb-1" />
+            <span className="block w-5 h-px bg-current mb-1" />
+            <span className="block w-5 h-px bg-current" />
+          </button>
+        )}
       </nav>
 
-      {open && (
-        <div className="md:hidden bg-navy border-t border-white/5 px-6 py-4">
+      {open && scrolled && (
+        <div className="md:hidden bg-navy-deep border-t border-white/[0.06] px-6 py-4">
           <ul className="flex flex-col gap-4">
             {links.map(({ href, label }) => (
               <li key={href}>
-                <a
-                  href={href}
-                  className="text-sm text-ivory/60 hover:text-ivory"
-                  onClick={() => setOpen(false)}
-                >
+                <a href={href} className="text-sm text-ivory/60 hover:text-ivory" onClick={() => setOpen(false)}>
                   {label}
                 </a>
               </li>

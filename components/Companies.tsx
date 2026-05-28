@@ -1,6 +1,6 @@
 export default function Companies() {
   return (
-    <section id="companies" className="section-divider py-24 px-6 bg-charcoal/30">
+    <section id="companies" className="section-divider py-24 px-6 bg-navy-deep">
       <div className="max-w-5xl mx-auto">
         <p className="text-gold text-xs tracking-widest uppercase mb-4">Work</p>
         <h2 className="font-display text-3xl text-ivory mb-12">
@@ -27,13 +27,14 @@ export default function Companies() {
               </a>
             </div>
             <p className="text-ivory/60 text-sm leading-relaxed mb-6">
-              The intelligence layer for business systems. DVERSI connects enterprise data sources,
-              applies AI orchestration across workflows, and delivers decision-ready outputs—without
-              requiring organisations to rebuild what they already have.
+              The AI layer for accounting and insurance systems. DVERSI connects via the Model
+              Context Protocol — the customer keeps their existing stack entirely — and adds
+              coworkers, workflows, and compliance enforcement on top. Eight to nine weeks
+              to a working pilot. Five to thirty times cheaper than a replacement platform.
             </p>
             <ul className="text-ivory/40 text-xs space-y-1">
-              <li>Multi-agent orchestration</li>
-              <li>ERP & legacy system integration</li>
+              <li>Customer&apos;s existing systems preserved</li>
+              <li>Domain-native: accounting &amp; insurance</li>
               <li>Entity-centric knowledge graph</li>
             </ul>
           </div>
@@ -57,14 +58,14 @@ export default function Companies() {
               </a>
             </div>
             <p className="text-ivory/60 text-sm leading-relaxed mb-6">
-              Management and technology advisory for organisations navigating large-scale digital
-              transformation. We work with leaders who need an honest view of what AI can and cannot
-              do for their operations—before committing to a direction.
+              The activation and services partner for organisations adopting DVERSI. We deliver
+              the scoping, integration, custom UI, and compliance work that turns the platform
+              into a working system for a specific team — in eight to nine weeks, not eighteen months.
             </p>
             <ul className="text-ivory/40 text-xs space-y-1">
-              <li>AI strategy & readiness assessment</li>
-              <li>Enterprise systems advisory</li>
-              <li>Oslo · Delhi</li>
+              <li>Activation engagements &amp; vertical extensions</li>
+              <li>Strategic advisory retainer</li>
+              <li>Oslo, Norway</li>
             </ul>
           </div>
         </div>

@@ -4,15 +4,15 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="section-divider py-12 px-6">
+    <footer className="section-divider py-12 px-6 bg-navy-deep">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
         <div>
           <p className="font-display text-ivory/60 mb-1">Rishi Raj Manglesh</p>
           <a
-            href="mailto:rishi@hundredsolutions.com"
+            href="mailto:rm@hundredsolutions.com"
             className="text-sm text-gold/70 hover:text-gold transition-colors"
           >
-            rishi@hundredsolutions.com
+            rm@hundredsolutions.com
           </a>
         </div>
 

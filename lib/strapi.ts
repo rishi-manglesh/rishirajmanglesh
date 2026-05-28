@@ -1,4 +1,5 @@
-import type { BlogPost, StrapiListResponse, StrapiSingleResponse } from '@/types'
+import type { BlogPost, StrapiListResponse } from '@/types'
+import { SEED_POSTS } from './seed-posts'
 
 const STRAPI_URL = process.env.STRAPI_URL ?? ''
 const STRAPI_TOKEN = process.env.STRAPI_API_TOKEN ?? ''
@@ -28,28 +29,33 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   const data = await fetchStrapi<StrapiListResponse<BlogPost>>(
     `/${COLLECTION}?populate[cover]=*&sort=publishedAt:desc&pagination[pageSize]=50`
   )
-  return data?.data ?? []
+  const live = data?.data ?? []
+  return live.length > 0 ? live : SEED_POSTS
 }
 
 export async function getLatestPosts(count = 3): Promise<BlogPost[]> {
   const data = await fetchStrapi<StrapiListResponse<BlogPost>>(
     `/${COLLECTION}?populate[cover]=*&sort=publishedAt:desc&pagination[pageSize]=${count}`
   )
-  return data?.data ?? []
+  const live = data?.data ?? []
+  return live.length > 0 ? live : SEED_POSTS.slice(0, count)
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   const data = await fetchStrapi<StrapiListResponse<BlogPost>>(
     `/${COLLECTION}?filters[slug][$eq]=${slug}&populate[cover]=*`
   )
-  return data?.data?.[0] ?? null
+  const live = data?.data?.[0] ?? null
+  if (live) return live
+  return SEED_POSTS.find((p) => p.attributes.slug === slug) ?? null
 }
 
 export async function getAllPostSlugs(): Promise<string[]> {
   const data = await fetchStrapi<StrapiListResponse<BlogPost>>(
     `/${COLLECTION}?fields[0]=slug&pagination[pageSize]=100`
   )
-  return data?.data?.map((p) => p.attributes.slug) ?? []
+  const live = data?.data?.map((p) => p.attributes.slug) ?? []
+  return live.length > 0 ? live : SEED_POSTS.map((p) => p.attributes.slug)
 }
 
 export function strapiImageUrl(image: BlogPost['attributes']['cover']): string | null {

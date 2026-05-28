@@ -39,20 +39,12 @@ export default function Book() {
                 Read on Amazon ↗
               </a>
               <a
-                href="https://read.amazon.com/sample/B0H2QNK3QV?clientId=share"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/book"
                 className="px-5 py-2.5 border border-gold/40 text-gold/70 text-sm hover:border-gold hover:text-gold transition-colors"
               >
-                Preview Chapters ↗
+                Preview Chapters →
               </a>
             </div>
-            <a
-              href="/book"
-              className="text-sm text-ivory/35 hover:text-ivory/70 transition-colors underline underline-offset-4"
-            >
-              Read sample pages →
-            </a>
           </div>
 
           {/* Right — flippable book cover */}

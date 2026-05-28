@@ -6,17 +6,17 @@ export default function Hero() {
       {/* Deep base */}
       <div className="absolute inset-0 bg-navy-deep" />
 
-      {/* Left panel — slightly lighter than navy-deep to visually anchor text */}
+      {/* Left panel */}
       <div className="absolute inset-y-0 left-0 w-1/2 md:w-[55%] bg-gradient-to-r from-navy/60 to-transparent pointer-events-none" />
 
-      {/* Gold radial glow behind text */}
+      {/* Gold radial glow */}
       <div className="absolute top-1/4 -left-24 w-[600px] h-[600px] rounded-full bg-gold/[0.07] blur-[120px] pointer-events-none" />
 
-      {/* Teal accent — lower right */}
+      {/* Teal accent */}
       <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] rounded-full bg-teal/[0.05] blur-[100px] pointer-events-none" />
 
-      {/* Photo — oval portrait, right half */}
-      <div className="absolute inset-y-0 right-0 w-[50%] flex items-center justify-center pointer-events-none select-none">
+      {/* Desktop portrait — absolute right half, hidden on mobile */}
+      <div className="hidden md:flex absolute inset-y-0 right-0 w-[50%] items-center justify-center pointer-events-none select-none">
         <div
           className="relative overflow-hidden ring-2 ring-gold/30 shadow-2xl shadow-black/50"
           style={{ width: 500, height: 500, borderRadius: '50%' }}
@@ -28,14 +28,11 @@ export default function Hero() {
             className="object-cover object-[50%_8%]"
             priority
           />
-          {/* Radial vignette — hides busy background at edges, face stays clear */}
           <div
             className="absolute inset-0"
             style={{ background: 'radial-gradient(ellipse at 50% 30%, transparent 40%, rgba(7,14,23,0.75) 100%)' }}
           />
-          {/* Bottom fade to ground the portrait */}
           <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/40 via-15% to-transparent" />
-          {/* Top fade */}
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/50 via-transparent to-transparent" />
         </div>
       </div>
@@ -52,8 +49,30 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative max-w-5xl mx-auto w-full px-6 pb-16">
-        <div className="max-w-xl">
+      <div className="relative max-w-5xl mx-auto w-full px-6 pb-16 pt-24 md:pt-0">
+
+        {/* Mobile portrait — in flow, above text, hidden on md+ */}
+        <div className="flex justify-center mb-10 md:hidden">
+          <div
+            className="relative overflow-hidden ring-2 ring-gold/30 shadow-xl shadow-black/50"
+            style={{ width: 200, height: 200, borderRadius: '50%' }}
+          >
+            <Image
+              src="/IMG_2531.jpeg"
+              alt="Rishi Raj Manglesh"
+              fill
+              className="object-cover object-[50%_8%]"
+              priority
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: 'radial-gradient(ellipse at 50% 30%, transparent 40%, rgba(7,14,23,0.80) 100%)' }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/60 via-transparent to-transparent" />
+          </div>
+        </div>
+
+        <div className="max-w-xl text-center md:text-left mx-auto md:mx-0">
           <p className="text-gold text-sm tracking-widest uppercase mb-6 font-body">
             Oslo, Norway
           </p>
@@ -63,11 +82,11 @@ export default function Hero() {
           <p className="font-display text-xl md:text-2xl text-gold/90 mb-4 italic">
             Solve First. Automate Later.
           </p>
-          <p className="text-ivory/50 text-lg leading-relaxed mb-10">
+          <p className="text-ivory/50 text-base md:text-lg leading-relaxed mb-10">
             Building the AI layer for accounting and insurance. Twenty years across India,
             Asia, and Norway. That depth is the product.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap justify-center md:justify-start gap-4">
             <a
               href="#book"
               className="px-6 py-3 bg-gold text-navy font-body font-medium text-sm hover:bg-gold/90 transition-colors"

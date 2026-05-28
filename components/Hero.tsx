@@ -64,8 +64,8 @@ export default function Hero() {
             Solve First. Automate Later.
           </p>
           <p className="text-ivory/50 text-lg leading-relaxed mb-10">
-            Building the AI layer for accounting and insurance — two domains I ran for twenty
-            years across India, Asia, and Norway. That depth is the product.
+            Building the AI layer for accounting and insurance. Twenty years across India,
+            Asia, and Norway. That depth is the product.
           </p>
           <div className="flex flex-wrap gap-4">
             <a

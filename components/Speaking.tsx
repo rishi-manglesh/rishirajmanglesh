@@ -2,7 +2,7 @@ export default function Speaking() {
   const topics = [
     {
       title: 'AI Advisory',
-      desc: 'Where AI works in financial operations and insurance — and where it silently fails.',
+      desc: 'Where AI works in financial operations and insurance, and where it silently fails.',
     },
     {
       title: 'Fractional CTO',
@@ -10,7 +10,7 @@ export default function Speaking() {
     },
     {
       title: 'Solve First, Automate Later ™',
-      desc: 'Proprietary methodology from the book — what to automate, in what order, and why.',
+      desc: 'Proprietary methodology from the book: what to automate, in what order, and why.',
     },
     {
       title: 'Ancient Epistemology & Modern AI',
@@ -28,14 +28,14 @@ export default function Speaking() {
             The conversation before the decision
           </h2>
           <p className="text-ivory/60 text-sm leading-relaxed mb-4">
-            Most of my speaking happens in rooms where a decision is being made — a board
+            Most of my speaking happens in rooms where a decision is being made: a board
             evaluating an AI investment, a leadership team committing to a direction, a technical
             group designing something they will live with for years.
           </p>
           <p className="text-ivory/60 text-sm leading-relaxed mb-8">
             I bring twenty years inside accounting and insurance systems and published research
             on LLM engineering. No product pitch. If an independent perspective is useful before
-            you commit, reach out — most conversations start with one question.
+            you commit, reach out. Most conversations start with one question.
           </p>
           <a
             href="mailto:rm@hundredsolutions.com"

@@ -25,7 +25,7 @@ export default function Book() {
             </p>
             <p className="text-ivory/60 leading-relaxed mb-8">
               Most organisations bolt AI onto legacy tools without understanding why the process
-              exists. This book is a diagnostic before an implementation — every framework earned
+              exists. This book is a diagnostic before an implementation. Every framework earned
               through production, every warning earned through failure. Accounting and insurance
               operators will recognise the problems. The patterns apply across industries.
             </p>

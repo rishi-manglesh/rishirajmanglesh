@@ -27,8 +27,8 @@ export default function Research() {
                 Darshana: A Six-School Framework for Large Language Model Orchestration and Training
               </h3>
               <p className="text-ivory/50 text-sm leading-relaxed mb-6">
-                The six classical Indian philosophical schools — Nyaya, Vaisheshika, Samkhya, Yoga,
-                Mimamsa, Vedanta — each map to a specific layer of the LLM engineering stack.
+                The six classical Indian philosophical schools (Nyaya, Vaisheshika, Samkhya, Yoga,
+                Mimamsa, Vedanta) each map to a specific layer of the LLM engineering stack.
                 Layer assignment is the critical variable: Mimamsa scored 0% as a runtime system
                 prompt but 82% applied as a query rewriter. Same technique, different layer.
               </p>
@@ -71,7 +71,7 @@ export default function Research() {
                     <span className="text-gold font-display text-lg">{win}</span>
                   </div>
                   <div>
-                    <p className="text-ivory/70 text-sm font-medium">{school} — {layer}</p>
+                    <p className="text-ivory/70 text-sm font-medium">{school}: {layer}</p>
                     <p className="text-ivory/25 text-xs mt-0.5">{note}</p>
                   </div>
                 </div>

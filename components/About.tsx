@@ -10,7 +10,7 @@ export default function About() {
             Intelligence built for the systems accounting and insurance already run.
           </h2>
           <p className="text-ivory/60 leading-relaxed mb-4">
-            Since 2021 I have been building Hundred Solutions, and in 2026 DVERSI — an AI
+            Since 2021 I have been building Hundred Solutions, and in 2026 DVERSI, an AI
             platform that connects to the systems accounting and insurance companies already
             run, without replacing them. Not a chat interface. An intelligence layer via MCP
             that builds on what exists and compounds over time.

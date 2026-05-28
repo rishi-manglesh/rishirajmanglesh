@@ -28,7 +28,7 @@ export default function Companies() {
             </div>
             <p className="text-ivory/60 text-sm leading-relaxed mb-6">
               The AI layer for accounting and insurance systems. DVERSI connects via the Model
-              Context Protocol — the customer keeps their existing stack entirely — and adds
+              Context Protocol. The customer keeps their existing stack entirely, and adds
               coworkers, workflows, and compliance enforcement on top. Eight to nine weeks
               to a working pilot. Five to thirty times cheaper than a replacement platform.
             </p>
@@ -60,7 +60,7 @@ export default function Companies() {
             <p className="text-ivory/60 text-sm leading-relaxed mb-6">
               The activation and services partner for organisations adopting DVERSI. We deliver
               the scoping, integration, custom UI, and compliance work that turns the platform
-              into a working system for a specific team — in eight to nine weeks, not eighteen months.
+              into a working system for a specific team, in eight to nine weeks, not eighteen months.
             </p>
             <ul className="text-ivory/40 text-xs space-y-1">
               <li>Activation engagements &amp; vertical extensions</li>
